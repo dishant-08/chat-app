@@ -66,14 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       },
     ],
-    [
-      "/clear",
-      () => {
-        while (messages.firstChild) {
-          messages.removeChild(messages.firstChild);
-        }
-      },
-    ],
+    
     [
       "/reload",
       () => {
@@ -94,6 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     ],
     [
+      "/clear",
+      () => {
+        while (messages.firstChild) {
+          messages.removeChild(messages.firstChild);
+        }
+      },
+    ],
+    [
       "/rem",
       (key, value) => {
         result = "";
@@ -101,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
           emojiMapping.set(key, value);
           alert("Remembered!!");
         } else if (key) {
-          let value = `${contactName} : The remembered word for ${key}  is ${emojiMapping.get(
+          let value = `${contactName} : Remembered word for ${key}  is ${emojiMapping.get(
             key
           )}`;
           socket.emit("chat message", value);
